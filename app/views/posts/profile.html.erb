@@ -1,0 +1,28 @@
+<h2><%= @user.username %>'s posts</h2>
+
+   <%= link_to :back, :class => 'btn btn-default' do %>
+    	<span class="glyphicon glyphicon-chevron-left"></span> Back
+	<% end %>
+
+<div class="row">
+
+	<% @posts.each do |post| %>
+
+		<div class="col-sm-6">
+			<div class="item" style="background-image: url('<%= post.avatar.url %>');">
+			
+				<h2><%= post.title %></h2>
+				<h4><%= post.description %></h4>
+				<h5>1 cool text per day, for 30 days, for $1!</h5>
+				
+				<a class="btn btn-primary" href="<%= new_post_subscriber_path(post.id) %>">Subscribe <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+			</div>
+		</div>
+
+		<% end %>
+	</div>
+	
+	<div class="text-center">
+        <%= will_paginate @posts %>
+    </div>

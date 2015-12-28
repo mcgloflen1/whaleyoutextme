@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Whale You Text Me</title>
+
+  <%= favicon_link_tag 'favicon.ico' %>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+	/>
+    <link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<!-- Navigation -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Whale You Text Me</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="<%= 'active' if current_page?(:root) %> <%= 'active' if current_page?(:recent) %>"><%= link_to "All", root_path %></li>
+              <li class="<%= 'active' if current_page?(tags_facts_path) %> <%= 'active' if current_page?(tags_facts_recent_path) %>"><%= link_to "Facts", tags_facts_path %></li>
+              <li class="<%= 'active' if current_page?(tags_jokes_path) %> <%= 'active' if current_page?(tags_jokes_recent_path) %>"><%= link_to "Jokes", tags_jokes_path %></li>
+              <li class="<%= 'active' if current_page?(tags_quotes_path) %> <%= 'active' if current_page?(tags_quotes_recent_path) %>"><%= link_to "Quotes", tags_quotes_path %></li>
+              <li class="<%= 'active' if current_page?(random_path) %>"><a href="<%= random_path %>">Random</a></li>
+              
+            </ul>
+
+            <% if user_signed_in? %>
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username %>  <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><%= link_to "Dashboard", user_path(current_user.id) %></li>
+                            <li>
+                                <a href="/">All Posts</a>
+                            </li>
+                            <li><%= link_to "New Post", new_user_post_path(current_user.id) %></li>
+                            <li><%= link_to "My Posts", user_posts_path(current_user.id) %></li>
+                            <li role="separator" class="divider"></li>
+                            <li><%= link_to "Log Out", destroy_user_session_path, method: "DELETE" %></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                          <%= form_tag(root_path, method: "GET", class: "navbar-form searchy") do %>
+                              <div>
+                                  <input type="text" class="form-control" name="q" placeholder="Search...">
+                              </div>
+                          <% end %>
+                        </li>
+                    </ul>
+                </li>
+                </ul>
+            <% end %>
+
+            <% if !user_signed_in? %>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <%= link_to "Log In", new_user_session_path %>
+                    </li>
+                    <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-search"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                          <%= form_tag(root_path, method: "GET", class: "navbar-form searchy") do %>
+                              <div>
+                                  <input type="text" class="form-control" name="q" placeholder="Search...">
+                              </div>
+                          <% end %>
+                        </li>
+                    </ul>
+                </li>
+                </ul>
+            <% end %>            
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<div class="container">
+
+  <% if flash[:error] %>
+   <div class="alert alert-danger alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Error:</strong> <%= flash[:error] %>
+  </div>
+<% end %>
+
+<% if flash[:success] %>
+   <div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Success:</strong> <%= flash[:success] %>
+  </div>
+<% end %>
+
+  <%= yield %>
+
+</div> 
+
+<footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6">
+            <p class="text-muted">Copyright &copy; HSM 2016</p>
+          </div>
+          <div class="col-xs-6">
+            <ul class="text-muted text-right list-inline">
+              <li><a href="#MyModal2" data-toggle="modal" data-target="#MyModal2">About</a></li>
+              <li><a href="#MyModal" data-toggle="modal" data-target="#MyModal">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="MyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_for ContactForm.new, :html => {:class => 'form-horizontal'} do |f| %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Contact Us</h4>
+      </div>
+      <div class="modal-body">
+
+        
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+              <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
+          </div>
+        </div>
+
+         <div class="form-group">
+          <label class="col-sm-2 control-label">Message</label>
+          <div class="col-sm-10">
+            <%= f.text_area :message, :rows => 5, class: 'form-control', placeholder: 'Message' %>
+          </div>
+        </div>
+
+        <div class= "hidden">
+        <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
+      </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Submit", class: 'btn btn-primary' %>
+      </div>
+<% end %>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2 -->
+<div class="modal fade" id="MyModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">About Us</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-info" role="alert">10% of every subscription goes towards helping endangered whales.</div>
+
+        <h5>FAQ</h5>
+        <p>Why do I have to pay for this?</p>
+        <p class="text-muted">It costs money to send texts.</p>
+        <p>What do I get?</p>
+        <p class="text-muted">One text per day, for 30 days.</p>
+        <p>How do I cancel a subscription?</p>
+        <p class="text-muted">Reply "stop".</p>
+        <p>Do I have to log in?</p>
+        <p class="text-muted">Only if you want to create a post.</p>
+        <p>What's with the name?</p>
+        <p class="text-muted">Every time you subscribe you help whales.</p>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+
+</html>

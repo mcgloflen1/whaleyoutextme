@@ -1,0 +1,214 @@
+<h2>New Post</h2>
+
+<a href="<%= user_path(current_user.id) %>" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Dashboard</a>
+
+<div class="item">
+        <h2>Title</h2>
+        <h4>Description</h4>
+        <h5>1 cool text per day, for 30 days, for $1!</h5>
+              
+      </div>
+
+<%= form_for [@user, @post] do |f| %>
+<div class="row">
+
+	<div class="col-sm-6">
+
+		<div class="form-group">
+		    <label>Title</label>
+		    <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Description</label>
+		    <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Tags </label><p class="text-muted inline"> (optional)</p>
+		    <%= f.text_field :tag_list, placeholder: "Ex: facts, jokes, quotes", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Background image</label>
+		    <%= f.file_field :avatar %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Additional info </label><p class="text-muted inline"> (optional)</p>
+		    <%= f.text_area :additional_info, placeholder: "Is there anything else people should know? This will be visible below your post", class: "form-control" %>
+		  </div>
+
+		  <%= f.hidden_field :postreview, value: true %>
+				
+	</div>
+
+	<div class="col-sm-6">
+
+		<div class="form-group">
+		    <label>Text 1</label>
+		    <%= f.text_field :text1, placeholder: "Text 1", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 2</label>
+		    <%= f.text_field :text2, placeholder: "Text 2", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 3</label>
+		    <%= f.text_field :text3, placeholder: "Text 3", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 4</label>
+		    <%= f.text_field :text4, placeholder: "Text 4", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 5</label>
+		    <%= f.text_field :text5, placeholder: "Text 5", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 6</label>
+		    <%= f.text_field :text6, placeholder: "Text 6", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 7</label>
+		    <%= f.text_field :text7, placeholder: "Text 7", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 8</label>
+		    <%= f.text_field :text8, placeholder: "Text 8", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 9</label>
+		    <%= f.text_field :text9, placeholder: "Text 9", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 10</label>
+		    <%= f.text_field :text10, placeholder: "Text 10", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 11</label>
+		    <%= f.text_field :text11, placeholder: "Text 11", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 12</label>
+		    <%= f.text_field :text2, placeholder: "Text 2", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 2</label>
+		    <%= f.text_field :text12, placeholder: "Text 12", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 13</label>
+		    <%= f.text_field :text13, placeholder: "Text 13", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 14</label>
+		    <%= f.text_field :text14, placeholder: "Text 14", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 15</label>
+		    <%= f.text_field :text15, placeholder: "Text 15", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 16</label>
+		    <%= f.text_field :text16, placeholder: "Text 16", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 17</label>
+		    <%= f.text_field :text17, placeholder: "Text 17", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 18</label>
+		    <%= f.text_field :text18, placeholder: "Text 18", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 19</label>
+		    <%= f.text_field :text19, placeholder: "Text 19", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 20</label>
+		    <%= f.text_field :text20, placeholder: "Text 20", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 21</label>
+		    <%= f.text_field :text21, placeholder: "Text 21", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 22</label>
+		    <%= f.text_field :text22, placeholder: "Text 22", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 23</label>
+		    <%= f.text_field :text23, placeholder: "Text 23", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 24</label>
+		    <%= f.text_field :text24, placeholder: "Text 24", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 25</label>
+		    <%= f.text_field :text25, placeholder: "Text 25", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 26</label>
+		    <%= f.text_field :text26, placeholder: "Text 26", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 27</label>
+		    <%= f.text_field :text27, placeholder: "Text 27", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 28</label>
+		    <%= f.text_field :text28, placeholder: "Text 8", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 29</label>
+		    <%= f.text_field :text29, placeholder: "Text 29", class: "form-control" %>
+		  </div>
+
+		  <div class="form-group">
+		    <label>Text 30</label>
+		    <%= f.text_field :text30, placeholder: "Text 30", class: "form-control" %>
+		  </div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-2 col-sm-offset-5">
+		<div class="margin-top-20 txt-right">
+			<a href="<%= user_path %>" class="btn btn-default">Cancel</a>
+		  	<%= f.submit "Submit", class: "btn btn-primary" %>
+		</div>
+	</div>
+</div>
+
+<% end %>

@@ -1,0 +1,184 @@
+<h2 class="inline">Dashboard</h2>
+<a href="<%= edit_user_registration_path(current_user) %>" class="inline">Account settings</a>
+<a href="/" class="inline">All posts</a>
+<a href="<%= new_user_post_path(current_user) %>" class="inline">New post</a>
+<a href="<%= user_posts_path(current_user) %>" class="inline">My posts</a>
+
+
+<div class="row">
+	<div class="col-sm-6">
+
+
+		<div class="panel panel-default">
+			  <div class="panel-heading">Notification center <span class="badge"><%= @notification_count %></span></div>
+			  <div class="panel-body">
+			   
+				    <!-- Table -->
+				  <table class="table">
+				  	<thead>
+				  		<tr>
+					  		<th></th>
+					  		<th>Subject</th>
+					  		<th>Body</th>
+					  		<th>Date</th>
+					  		<th></th>
+					  	</tr>
+				  	</thead>
+				    <tbody>
+				    	<% @notifications.each do |f| %>
+				    	<tr>
+					    	<th><span class="glyphicon glyphicon-envelope"></span></th>
+					    	<td><%= f.subject %></td>
+					    	<td>
+					    		<% if f.subject == "Post approved!" %>
+					    			View your post <a href="<%= f.body %>">here..</a>
+					    		<% else %>
+					    			<%= f.body %>
+					    		<% end %>
+					    	</td>
+					    	<td><%= f.created_at.strftime('%m/%d') %></td>
+					    	<td>
+					    		<%= form_tag(notification_path(f.id), method: "DELETE") do %>
+		                		<button type="submit" class="btn btn-danger">x</button>
+		            			<% end %>
+					    	</td>
+					    </tr>
+					    <% end %>
+				    </tbody>
+				  </table>
+
+			  </div>
+			</div>
+
+
+			<% if current_user.admin? %>
+
+			<div class="panel panel-default">
+			  <div class="panel-heading">Create notification</div>
+			  <div class="panel-body">
+			    <%= form_for @notification do |f| %>
+
+			    	<div class="form-group">
+					    <%= f.label "To" %>
+					    <%= f.text_field :user_id, placeholder: "User id, username, or 'all'", class: "form-control" %>
+					  </div>
+
+			    	<div class="form-group">
+					    <%= f.label :subject %>
+					    <%= f.text_field :subject, placeholder: "Subject", class: "form-control" %>
+					  </div>
+
+					  <div class="form-group">
+					    <%= f.label :body %>
+					    <%= f.text_field :body, placeholder: "Body", class: "form-control" %>
+					  </div>
+
+					  <%= f.submit "Send", class: "btn btn-primary", data: (:user_id == "all" ? {confirm: "Are you sure you want to send to ALL?"} : nil) %>
+			    <% end %>
+			  </div>
+			</div>
+
+
+				<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Posts pending approval</div>
+			  <div class="panel-body">
+
+			  <!-- Table -->
+			  <table class="table">
+			  	<thead>
+			  		<tr>
+				  		<th>Id</th>
+				  		<th>Title</th>
+				  		<th>Created at</th>
+				  		<th>Updated at</th>
+				  		<th></th>
+				  	</tr>
+			  	</thead>
+			    <tbody>
+			    	<% @posts_admin.each do |post| %>
+			    	<tr>
+				    	<th><%= post.id %></th>
+				    	<td><%= post.title %></td>
+				    	<td><%= post.created_at.strftime('%m-%d-%Y %H:%M') %></td>
+				    	<td><%= post.updated_at.strftime('%m-%d-%Y %H:%M') %></td>
+				    	<td><a href="/posts/<%= post.id %>/edit">Moderate</a></td>
+				    </tr>
+				    <% end %>
+			    </tbody>
+			  </table>
+			</div>
+		</div>
+
+			<% end %>
+
+			<div class="panel panel-default">
+			  <div class="panel-heading">My posts pending approval
+			  </div>
+			  <div class="panel-body">
+			    <% @posts_pending.each do |post| %>
+
+				<div class="item" style="background-image: url('<%= post.avatar.url %>');">
+					<h2><%= post.title %></h2>
+					<h4><%= post.description %></h4>
+					<h5>1 cool whale fact per day, for 30 days, for $1!</h5>
+
+					<div class="row">
+						<div class="col-sm-1 col-sm-offset-5">
+							<a href="/users/<%= post.user_id %>/posts/<%=post.id %>/edit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+						</div>
+						<div class="col-sm-1">
+							<%= form_tag(user_post_path(post.user_id, post.id), method: "DELETE", data: {confirm: "Are you sure you want to delete this post?"}) do %>
+		                		<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+		            		<% end %>
+
+		            	</div>
+		            </div>
+
+				</div>
+			
+			<% end %>
+			  </div>
+			</div>
+
+
+	</div>
+
+			<div class="col-sm-6">
+				
+				<div class="panel panel-default">
+			  <div class="panel-heading">My recent posts
+			  </div>
+			  <div class="panel-body">
+			    <% @posts.each do |post| %>
+
+				<div class="item" style="background-image: url('<%= post.avatar.url %>');">
+					<h2><%= post.title %></h2>
+					<h4><%= post.description %></h4>
+					<h5>1 cool whale fact per day, for 30 days, for $1!</h5>
+
+					<div class="row">
+						<div class="col-sm-1 col-sm-offset-5">
+							<a href="/users/<%= post.user_id %>/posts/<%=post.id %>/edit" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+						</div>
+						<div class="col-sm-1">
+							<%= form_tag(user_post_path(post.user_id, post.id), method: "DELETE", data: {confirm: "Are you sure you want to delete this post?"}) do %>
+		                		<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+		            		<% end %>
+
+		            	</div>
+		            </div>
+
+				</div>
+			
+			<% end %>
+
+			<div class="text-center">
+		        <a href="<%= user_posts_path(current_user) %>" class="inline">More posts</a>
+		    </div>
+			  </div>
+			</div>
+	</div>
+</div>
+
+

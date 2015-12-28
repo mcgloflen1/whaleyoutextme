@@ -1,0 +1,52 @@
+<%= link_to :back, :class => 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-chevron-left"></span> Back
+  <% end %>
+
+      <div class="item" style="background-image: url('<%= @post.avatar.url %>');">
+        <h1><%= @post.title %></h1>
+        <h4><%= @post.description %></h4>
+        <h5>1 cool text per day, for 30 days, for $1!</h5>
+        
+        <%= form_for [@post, @subscriber], :html => { :id => "chargeForm", :class => "form-inline" } do |f| %>
+          <div class="form-group">
+            
+            
+            <%= f.telephone_field :phone, placeholder: "phone number", class: "form-control", id: "phonenumber" %>
+          </div>
+          <%= f.submit "Subscribe", id: "subscribeButton", class: "btn btn-default" %>
+
+          <script src="https://checkout.stripe.com/checkout.js"></script>
+          
+                  <%= hidden_field_tag 'stripeToken' %>
+                  <%= hidden_field_tag 'stripeEmail' %>
+
+<script>
+          var handler = StripeCheckout.configure({
+                      key: 'pk_test_zPwH8mfvYp2jFa9LtjNjjM9b',
+                      image: '#',
+                      token: function(token, args) {
+                            document.getElementById("stripeToken").value = token.id;                              
+                            document.getElementById("stripeEmail").value = token.email;
+                            document.getElementById("chargeForm").submit();
+                          }
+                        });
+                
+                      $(document).on("click", "#subscribeButton", function () {
+                        // Open Checkout with further options
+                        handler.open({
+                          name: 'Whale You Text Me',
+                          description: 'Subscription to <%= @post.title %> ($1.00)',
+                          amount: 100,
+                        });
+                        event.preventDefault();
+                        });
+</script>
+        <% end %>
+        
+        <h6>Text "stop" to unsubscribe</h6>
+        <h6>Created by <a href="<%= user_profile_path(@post.user.id) %>"><%= @post.user.username %></a></h6>
+      </div>
+
+<p><%= @post.additional_info %></p>
+
+      

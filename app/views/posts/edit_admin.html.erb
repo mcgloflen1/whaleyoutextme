@@ -1,0 +1,71 @@
+<% if current_user.admin? %>
+
+	<h2>Moderate Post</h2>
+
+	<a href="<%= user_path(current_user.id) %>" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span> Dashboard</a>
+
+	<div class="item" style="background-image: url('<%= @post.avatar.url %>');">
+	        <h2><%= @post.title %></h2>
+	        <h4><%= @post.description %></h4>
+	        <h5>1 cool text per day, for 30 days, for $1!</h5>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+			<h4>Title:</h4>
+			<p><%= @post.title %></p>
+			<h4>Description:</h4>
+			<p><%= @post.description %></p>
+			<h4>Tags:</h4>
+			<p><%= @post.tag_list %></p>
+			<h4>Additional info:</h4>
+			<p><%= @post.additional_info %></p>
+			<h4>Created by:</h4>
+			<p><%= @user %></p>
+		</div>
+		<div class="col-sm-3">
+			<p><%= @post.text1 %></p>
+			<p><%= @post.text2 %></p>
+			<p><%= @post.text3 %></p>
+			<p><%= @post.text4 %></p>
+			<p><%= @post.text5 %></p>
+			<p><%= @post.text6 %></p>
+			<p><%= @post.text7 %></p>
+			<p><%= @post.text8 %></p>
+			<p><%= @post.text9 %></p>
+			<p><%= @post.text10 %></p>
+		</div>
+		<div class="col-sm-3">
+			<p><%= @post.text11 %></p>
+			<p><%= @post.text12 %></p>
+			<p><%= @post.text13 %></p>
+			<p><%= @post.text14 %></p>
+			<p><%= @post.text15 %></p>
+			<p><%= @post.text16 %></p>
+			<p><%= @post.text17 %></p>
+			<p><%= @post.text18 %></p>
+			<p><%= @post.text19 %></p>
+			<p><%= @post.text20 %></p>
+		</div>
+		<div class="col-sm-3">
+			<p><%= @post.text21 %></p>
+			<p><%= @post.text22 %></p>
+			<p><%= @post.text23 %></p>
+			<p><%= @post.text24 %></p>
+			<p><%= @post.text25 %></p>
+			<p><%= @post.text26 %></p>
+			<p><%= @post.text27 %></p>
+			<p><%= @post.text28 %></p>
+			<p><%= @post.text29 %></p>
+			<p><%= @post.text30 %></p>
+		</div>
+	</div>
+
+	<%= form_for @post, method: "PUT" do |f| %>
+		<%= f.hidden_field :postreview, value: false %>
+		<%= link_to "Cancel", :back, class: "btn btn-default" %>
+    	<%= f.submit 'Publish post', class: "btn btn-warning" %>
+	<% end %>
+
+<% end %>
+
