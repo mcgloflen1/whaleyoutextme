@@ -98,7 +98,7 @@ class SubscribersController < ApplicationController
             @subscriber.send_message_thirty(text30)
 
             redirect_to "/"
-            flash[:success] = "You are now subscribed to " + intro + "!"
+            flash[:success] = "You are now subscribed to " + intro + "!"aaasde
           end
       else
           redirect_to new_post_subscriber_path
