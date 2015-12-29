@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-    default from: "Haley <no-reply@whaleyoutextme.com>"
+    default from: "Whale You Text Me <no-reply@whaleyoutextme.com>"
 
     def say_hello(user)
         @username  = user.username
