@@ -9,373 +9,373 @@ class Subscriber < ActiveRecord::Base
 
     def send_message_intro(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
             body: "You have been subscribed to " + text + "!"
         )
     end
     
-    def send_message(text1)
+    def send_message(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text1
+            body: text
         )
     end
     
-    def send_message_two(text2)
+    def send_message_two(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text2
+            body: text
         )
     end
 
-    def send_message_three(text3)
+    def send_message_three(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text3
+            body: text
         )
     end
 
-    def send_message_four(text4)
+    def send_message_four(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text4
+            body: text
         )
     end
-
-    def send_message_five(text5)
+    
+    def send_message_five(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text5
+            body: text
         )
     end
-
-    def send_message_six(text6)
+    
+    def send_message_six(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text6
+            body: text
         )
     end
-
-    def send_message_seven(text7)
+    
+    def send_message_seven(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text7
+            body: text
         )
     end
-
-    def send_message_eight(text8)
+    
+    def send_message_eight(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text8
+            body: text
         )
     end
-
-    def send_message_nine(text9)
+    
+    def send_message_nine(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text9
+            body: text
         )
     end
-
-    def send_message_ten(text10)
+    
+    def send_message_ten(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text10
+            body: text
         )
     end
-
-    def send_message_eleven(text11)
+    
+    def send_message_eleven(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text11
+            body: text
         )
     end
-
-    def send_message_twelve(text12)
+    
+    def send_message_twelve(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text12
+            body: text
         )
     end
-
-    def send_message_thirteen(text13)
+    
+    def send_message_thirteen(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text13
+            body: text
         )
     end
-
-    def send_message_fourteen(text14)
+    
+    def send_message_fourteen(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text14
+            body: text
         )
     end
-
-    def send_message_fifteen(text15)
+    
+    def send_message_fifteen(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text15
+            body: text
         )
     end
-
-    def send_message_sixteen(text16)
+    
+    def send_message_sixteen(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text16
+            body: text
         )
     end
-
-    def send_message_seventeen(text17)
+    
+    def send_message_seventeen(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text17
+            body: text
         )
     end
-
-    def send_message_eighteen(text18)
+    
+    def send_message_eighteen(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text18
+            body: text
         )
     end
-
-    def send_message_nineteen(text19)
+    
+    def send_message_nineteen(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text19
+            body: text
         )
     end
-
-    def send_message_twenty(text20)
+    
+    def send_message_twenty(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text20
+            body: text
         )
     end
-
-    def send_message_twentyone(text21)
+    
+    def send_message_twentyone(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text21
+            body: text
         )
     end
-
-    def send_message_twentytwo(text22)
+    
+    def send_message_twentytwo(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text22
+            body: text
         )
     end
-
-    def send_message_twentythree(text23)
+    
+    def send_message_twentythree(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text23
+            body: text
         )
     end
-
-    def send_message_twentyfour(text24)
+    
+    def send_message_twentyfour(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text24
+            body: text
         )
     end
-
-    def send_message_twentyfive(text25)
+    
+    def send_message_twentyfive(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text25
+            body: text
         )
     end
-
-    def send_message_twentysix(text26)
+    
+    def send_message_twentysix(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text26
+            body: text
         )
     end
-
-    def send_message_twentyseven(text27)
+    
+    def send_message_twentyseven(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text27
+            body: text
         )
     end
-
-    def send_message_twentyeight(text28)
+    
+    def send_message_twentyeight(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text28
+            body: text
         )
     end
-
-    def send_message_twentynine(text29)
+    
+    def send_message_twentynine(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text29
+            body: text
         )
     end
-
-    def send_message_thirty(text30)
+    
+    def send_message_thirty(text)
         # Instantiate a Twilio client
-        client = Twilio::REST::Client.new(TWILIO_CONFIG['account_sid'], TWILIO_CONFIG['auth_token'])
+        client = Twilio::REST::Client.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
   
         # Create and send an SMS message
         client.account.messages.create(
-            from: TWILIO_CONFIG['from'],
+            from: TWILIO_FROM,
             to: self.phone,
-            body: text30
+            body: text
         )
     end
 
