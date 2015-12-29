@@ -227,6 +227,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   spring
   stripe
+  therubyracer
   turbolinks
   twilio-ruby
   tzinfo-data
