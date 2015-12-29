@@ -24,5 +24,7 @@ module Texter
     config.active_record.raise_in_transactional_callbacks = true
     
     config.active_job.queue_adapter = :delayed_job
+
+    config.assets.initialize_on_precompile = false
   end
 end
